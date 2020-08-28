@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/moviesapi",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MoviesAPI\\Providers\\MoviesAPIServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MoviesAPI\\": ""
+        }
+    }
+}
