@@ -18,11 +18,24 @@ class MoviesAPIController extends Controller
     {
         $this->moviesRepository = $moviesRepository;
     }
-    public function movies(){
-        $movies = $this->moviesRepository->getPopularMovies();
+    public function movies(Request $request){
+        if($request->has('category_id')){
+            $category_id = $request->query('category_id');
+            $movies = $this->moviesRepository->getMoviesByCategory($category_id);
+            return $this->apiResponse(MoviesResource::collection($movies));
+        }
+        if($request->has('rated') && $request->has('popular')){
+            $popular = $request->query('popular');
+            $rated = $request->query('rated');
+            $movies = $this->moviesRepository->getMoviesByVoteAndPopularity($popular, $rated);
+            return $this->apiResponse(MoviesResource::collection($movies));
+        }
+        else{
+            $movies = $this->moviesRepository->getPopularMovies();
         if($movies)
             return $this->apiResponse(MoviesResource::collection($movies));
         return $this->notFoundResponse("no movies found");
+        }
     }
     public function categories(){
         $categories = $this->moviesRepository->getCategories();
@@ -36,21 +49,21 @@ class MoviesAPIController extends Controller
 //            return $this->apiResponse(MoviesResource::collection($movies));
 //        return $this->notFoundResponse("no movies found");
 //    }
-    public function filterMoviesByCategory(Request $request)
-    {
-        $category_id = $request->query('category_id');
-        $movies = $this->moviesRepository->getMoviesByCategory($category_id);
-        if($movies)
-            return $this->apiResponse(MoviesResource::collection($movies));
-        return $this->notFoundResponse("no movies found in that category");
-    }
-    public function filterMoviesByRateAndPopularity(Request $request)
-    {
-        $popular = $request->query('popular');
-        $rated = $request->query('rated');
-        $movies = $this->moviesRepository->getMoviesByVoteAndPopularity($popular, $rated);
-        return $this->apiResponse(MoviesResource::collection($movies));
-    }
+//    public function filterMoviesByCategory(Request $request)
+//    {
+//        $category_id = $request->query('category_id');
+//        $movies = $this->moviesRepository->getMoviesByCategory($category_id);
+//        if($movies)
+//            return $this->apiResponse(MoviesResource::collection($movies));
+//        return $this->notFoundResponse("no movies found in that category");
+//    }
+//    public function filterMoviesByRateAndPopularity(Request $request)
+//    {
+//        $popular = $request->query('popular');
+//        $rated = $request->query('rated');
+//        $movies = $this->moviesRepository->getMoviesByVoteAndPopularity($popular, $rated);
+//        return $this->apiResponse(MoviesResource::collection($movies));
+//    }
     public function topRatedMovies(){
         $movies = $this->moviesRepository->getTopRatedMovies();//dd($movies->results);
         return $movies->results;

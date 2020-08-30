@@ -23,11 +23,11 @@ Route::group(['prefix'=>'categories'], function(){
 });
 Route::group(['prefix'=>'movies'], function(){
     Route::get('create','MoviesAPIController@createMovies');
-    Route::get('/','MoviesAPIController@movies');
-    Route::get('/','MoviesAPIController@filterMoviesByCategory');
-    Route::get('/','MoviesAPIController@filterMoviesByRateAndPopularity');
-    Route::get('/topRated','MoviesAPIController@topRatedMovies');
-    Route::get('/recently','MoviesAPIController@recentlyMovies');
+    Route::get('/',['as'=>'movies', 'uses'=>'MoviesAPIController@movies']);
+//    Route::get('/','MoviesAPIController@filterMoviesByCategory');
+//    Route::get('/','MoviesAPIController@filterMoviesByRateAndPopularity');
+//    Route::get('/topRated','MoviesAPIController@topRatedMovies');
+//    Route::get('/recently','MoviesAPIController@recentlyMovies');
 
     Route::get('create/queue','MoviesAPIController@createMoviesByQueue');
 });

@@ -48,8 +48,6 @@ class MoviesRepository implements MoviesRepositoryInterface
         for ($i = 0; $i<count($categories->genres); $i++){
             $this->category->insert(['id'=>$categories->genres[$i]->id,'name'=>$categories->genres[$i]->name]);
         }
-//        $categoriesJob = (new StoreMoviesAndCategoriesJob())->delay(Carbon::now()->addSeconds(5));
-//        dispatch($categoriesJob);
     }
     //Create Movies from API to DB
     public function createMovies(){
@@ -57,9 +55,6 @@ class MoviesRepository implements MoviesRepositoryInterface
         for ($i = 0; $i<count($movies->results); $i++){
             $this->movie->insert(['id'=>$movies->results[$i]->id,'title'=>$movies->results[$i]->title, 'popularity'=>$movies->results[$i]->popularity,'vote_average'=>$movies->results[$i]->vote_average,'genre_ids'=>json_encode($movies->results[$i]->genre_ids)]);
         }
-//        $moviesJob = (new StoreMoviesJob)->delay(Carbon::now()->addSeconds(10));
-//        dispatch($moviesJob);
-
     }
 
     public function storeMoviesByQueues(){
