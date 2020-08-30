@@ -17,3 +17,13 @@ Route::middleware('auth:api')->get('/moviesapi', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix'=>'categories'], function(){
+    Route::get('/','MoviesAPIController@categories');
+    Route::get('/create','MoviesAPIController@createCategories');
+});
+Route::group(['prefix'=>'movies'], function(){
+    Route::get('create','MoviesAPIController@createMovies');
+    Route::get('popular','MoviesAPIController@movies');
+    Route::get('/','MoviesAPIController@filterMoviesByCategory');
+    Route::get('/','MoviesAPIController@filterMoviesByRateAndPopularity');
+});

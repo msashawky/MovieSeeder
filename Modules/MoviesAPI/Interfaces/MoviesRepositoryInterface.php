@@ -6,7 +6,7 @@ namespace Modules\MoviesAPI\Interfaces;
 
 interface MoviesRepositoryInterface
 {
-    public function getRecentlyMovies();
+    public function getPopularMovies();
     public function getTopRatedMovies();
 
 }
