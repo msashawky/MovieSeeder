@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\CreateMovies::class,
     ];
 
     /**
@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->exec('php artisan movies:create')->hourly();
+        //* * * * * cd /http://localhost:8000 && php artisan schedule:run >> /dev/null 2>&1
+//        $schedule->command('movies:create')
+//            ->daily();
     }
 
     /**

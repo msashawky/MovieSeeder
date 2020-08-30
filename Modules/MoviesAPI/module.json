@@ -1,0 +1,14 @@
+{
+    "name": "MoviesAPI",
+    "alias": "moviesapi",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\MoviesAPI\\Providers\\MoviesAPIServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
