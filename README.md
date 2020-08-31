@@ -31,6 +31,8 @@
 - Create Categories (PATH/api/categories/create) will also seed the DB with categories
 - Create Movies (PATH/api/movies/create) will also seed the DB with movies
 
+#Tests
+- in command line PS Run vendor\bin\phpubit to run the test cases
 ## For any questions
 Please contact me at msashawky@gmail.com for any questions it will be more than welcome.
 
