@@ -15,6 +15,7 @@
 ## Another way to store data (using Queues)
 - run (php artisan queue:work)
 - It will run a specific job found at (Modules\MoviesAPI\Jobs\StoreMoviesAndCategoriesJob.php)
+-open PATH/api/movies/create/queue to test invoking the queue.
 
 ##Project Structure and Used packages
 - [Laravel 5.8](https://laravel.com/docs/5.8)
@@ -27,10 +28,14 @@
 - get movies (PATH/api/movies).
 - get movies filtered by categories (PATH/api/movies?category_id=18).
 - get movies filtered by votes and popularity(PATH/api/movies?voted=desc&popular=desc).
-Route::get('/','MoviesAPIController@categories');
-    Route::get('/create','MoviesAPIController@createCategories');
+- Create Categories (PATH/api/categories/create) will also seed the DB with categories
+- Create Movies (PATH/api/movies/create) will also seed the DB with movies
+
 ## For any questions
 Please contact me at msashawky@gmail.com for any questions it will be more than welcome.
+
+## Notes
+- I built another one using Docker container but accidentally have a problem with DB connections so I didn't deploy it.
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
