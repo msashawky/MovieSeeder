@@ -43,27 +43,7 @@ class MoviesAPIController extends Controller
             return $this->apiResponse(CategoriesResource::collection($categories));
         return $this->notFoundResponse("no categories found");
     }
-//    public function filterMoviesByCategory($category_id){
-//        $movies = $this->moviesRepository->getMoviesByCategory($category_id);
-//        if($movies)
-//            return $this->apiResponse(MoviesResource::collection($movies));
-//        return $this->notFoundResponse("no movies found");
-//    }
-//    public function filterMoviesByCategory(Request $request)
-//    {
-//        $category_id = $request->query('category_id');
-//        $movies = $this->moviesRepository->getMoviesByCategory($category_id);
-//        if($movies)
-//            return $this->apiResponse(MoviesResource::collection($movies));
-//        return $this->notFoundResponse("no movies found in that category");
-//    }
-//    public function filterMoviesByRateAndPopularity(Request $request)
-//    {
-//        $popular = $request->query('popular');
-//        $rated = $request->query('rated');
-//        $movies = $this->moviesRepository->getMoviesByVoteAndPopularity($popular, $rated);
-//        return $this->apiResponse(MoviesResource::collection($movies));
-//    }
+
     public function topRatedMovies(){
         $movies = $this->moviesRepository->getTopRatedMovies();//dd($movies->results);
         return $movies->results;

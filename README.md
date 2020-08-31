@@ -20,7 +20,15 @@
 - [Laravel 5.8](https://laravel.com/docs/5.8)
 - [Laravel Modules](https://github.com/nWidart/laravel-modules)
 - Repository Design Pattern: found in (Modules\MoviesAPI\Repositories\), the repository class implements an interface that puts some conventions to the written methods.
--Controllers only call for repository methods
+- Controllers only call for repository methods
+- Some global things implemented at helpers\helpers.php
+## Endpoints
+- get categories (PATH/api/categories).
+- get movies (PATH/api/movies).
+- get movies filtered by categories (PATH/api/movies?category_id=18).
+- get movies filtered by votes and popularity(PATH/api/movies?voted=desc&popular=desc).
+Route::get('/','MoviesAPIController@categories');
+    Route::get('/create','MoviesAPIController@createCategories');
 ## For any questions
 Please contact me at msashawky@gmail.com for any questions it will be more than welcome.
 ## License
