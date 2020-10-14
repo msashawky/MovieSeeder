@@ -36,8 +36,7 @@
 ## For any questions
 Please contact me at msashawky@gmail.com for any questions it will be more than welcome.
 
-## Notes
-- I built another one using Docker container but accidentally have a problem with DB connections so I didn't deploy it.
+
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
